@@ -1,0 +1,56 @@
+.altura {
+    height: 100%;
+    width: 100%;
+}
+
+.font {
+    font-family: 'MiFuente';
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.cont {
+    background-color: rgba(177, 177, 177, 0.523);
+    border-radius: 10px;
+    border: 1px solid black;
+    border-style: dashed;
+}
+
+.margen {
+    margin-top: 150px;
+}
+
+input {
+    text-decoration: none;
+    outline: blue;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    width: 100%;
+}
+
+img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+
+.no-pad {
+    padding: 0;
+}
+
+a {
+    color: rgb(59, 59, 59);
+    text-decoration: none;
+    //padding: 5px;
+    font-family: 'MiFuente';
+    font-size: 15px;
+    font-weight: 100;
+
+
+}
+
+a:hover {
+    color: rgb(0, 0, 0);
+}

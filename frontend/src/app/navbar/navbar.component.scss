@@ -1,0 +1,88 @@
+.back-cont {
+  background-color: rgb(177, 177, 177);
+
+}
+
+.back-nav {
+  background-color: rgb(53, 53, 53);
+
+}
+
+.barra-envio {
+  display: flex;
+  justify-content: center;
+  height: 43px;
+  color: rgb(255, 255, 255);
+
+  p {
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  background-color: rgb(53, 53, 53);
+  height: 80px;
+
+  .navegacion {
+    margin-top: 30px;
+
+    a {
+      color: rgb(234, 234, 234);
+      text-decoration: none;
+      //padding: 5px;
+      font-family: 'MiFuente';
+      font-size: 15px;
+      font-weight: 100;
+
+
+    }
+
+    .espacio {
+      margin-left: 40px;
+
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    button {
+      border: none;
+      background: transparent;
+
+      svg {
+        padding-right: 20px;
+      }
+    }
+
+    svg:hover {
+      color: white;
+    }
+  }
+
+  .logo {
+    margin-top: 30px;
+    //margin-left: 100px;
+
+    h5 {
+      color: white;
+      font-size: 20px;
+    }
+  }
+
+  .iconos button {
+    border: none;
+    background: transparent;
+    margin-top: 15px;
+
+    svg {
+      padding-right: 20px;
+    }
+  }
+}

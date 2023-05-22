@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h1>Create New Post</h1>
+
+    <a href="#" routerLink="/producto/index" class="btn btn-primary">Back</a>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="Nombre">Nombre:</label>
+            <input formControlName="Nombre" id="Nombre" type="text" class="form-control" />
+            <div *ngIf="f['Nombre'].touched && f['Nombre'].invalid" class="alert alert-danger">
+                <div *ngIf="f['Nombre'].errors && f['Nombre'].errors['required']">
+                    Nombre is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Descripcion">Descripcion</label>
+            <textarea formControlName="Descripcion" id="Descripcion" type="text" class="form-control">
+        </textarea>
+            <div *ngIf="f['Descripcion'].touched && f['Descripcion'].invalid" class="alert alert-danger">
+                <div *ngIf="f['Descripcion'].errors && f['Descripcion'].errors['required']">
+                    Descripcion is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Precio">Precio</label>
+            <textarea formControlName="Precio" id="Precio" type="text" class="form-control">
+        </textarea>
+            <div *ngIf="f['Precio'].touched && f['Precio'].invalid" class="alert alert-danger">
+                <div *ngIf="f['Precio'].errors && f['Precio'].errors['required']">
+                    Precio is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Stock">Stock</label>
+            <textarea formControlName="Stock" id="Stock" type="text" class="form-control">
+        </textarea>
+
+            <div *ngIf="f['Stock'].touched && f['Stock'].invalid" class="alert alert-danger">
+                <div *ngIf="f['Stock'].errors && f['Stock'].errors['required']">
+                    Stock is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Fotografía articulo</label>
+            <input (change)="uploadFile($event)" type="file" class="form-control form-control-line"
+                style="color: transparent">
+        </div>
+
+        <button class="btn btn-primary mt-5 mb-5" type="submit">
+            Submit
+        </button>
+    </form>
+
+</div>

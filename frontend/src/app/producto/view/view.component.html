@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div class="container">
+	<div class="row mt-5">
+
+		<div class="col-lg-6" *ngIf="productos">
+			<h2>{{ productos.Nombre }}</h2>
+			<p>{{ productos.Descripcion }}</p>
+			<p>Precio: €{{ productos.Precio }}</p>
+			<p>Stock: {{ productos.Stock }}</p>
+			<!-- Otros detalles del producto -->
+
+		</div>
+		<div class="col-lg-4 text-center">
+			<img class="img-thumbnail"
+				src="{{ productos?.imagen ? imgURL + productos?.imagen : 'assets/images/producto.png' }}" width="350" />
+			<button type="button" [routerLink]="['/producto/shopping/', id]"
+				class="btn btn-primary mt-3">Comprar</button>
+		</div>
+
+		<div class="col-lg-2">
+			<a href="#" routerLink="/producto/index" class="btn btn-primary">Back</a>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,51 @@
+<div class="altura">
+    <div class="container-fluid margen">
+        <div class="row justify-content-center">
+
+            <div class="col-4">
+
+                <app-noticias></app-noticias>
+
+            </div>
+            <div class="col-3">
+                <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="container-fluid cont">
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <h3 class="font mt-4 mb-3 text-center">SIGN IN</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Email address</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="email" class="" formControlName="email" required>
+                            </div>
+                            <div class="col-6 mt-3">
+                                <label>Password</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="password" class="" formControlName="password" required>
+                            </div>
+                            <div class="col-12 mt-3 mb-3 text-center">
+                                <button type="submit" class="btn btn-dark">Log in</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+                <div class="container-fluid mt-2 cont">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center mt-3">
+                            <p> ¿No estas registrado todavia? </p>
+                        </div>
+                        <div class="col-12 text-center mt-1 mb-3">
+                            <a href="#" routerLink="/register" class="text-center btn btn-dark text-white">SIGN UP</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="productos">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p class="title">Productos</p>
+
+      </div>
+      <div *ngFor="let producto of productos" class="contenedor-producto col-3 mt-3">
+        <img [src]="producto.imagen" alt="{{ producto.nombre }}" />
+        <h2>{{ producto.nombre }}</h2>
+        <p>€{{ producto.precio }} EUR </p>
+      </div>
+    </div>
+  </div>
+</div>

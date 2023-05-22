@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="productos">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="title">Productos</p>
+                <a *ngIf="isAdmin||isEmployee" routerLink="/producto/create" class="btn btn-success">Create New
+                    producto</a>
+
+            </div>
+            <div *ngFor="let producto of productos" class="contenedor-producto col-3 mt-3">
+                <a href="#" [routerLink]="['/producto/', 'show', producto.ID_Producto  ]">
+                    <!--<img [src]="producto.imagen" alt="{{ producto.nombre }}" />-->
+                    <img class="img-thumbnail mt-4" src="{{imgURL}}/{{producto.imagen}}" style="height: 320px;" />
+                </a>
+
+                <h2>{{ producto.Nombre }}</h2>
+                <p>€{{ producto.Precio }} EUR </p>
+                <div *ngIf="isAdmin||isEmployee">
+                    <a href="#" [routerLink]="['/producto/', 'edit', producto.ID_Producto  ]"
+                        class="btn btn-primary">Edit</a>
+                    <button type="button" (click)="deleteProducto(producto.ID_Producto)"
+                        class="btn btn-danger">Delete</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

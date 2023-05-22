@@ -1,0 +1,37 @@
+.title {
+    font-size: 25px !important;
+    //margin-left: 15px;
+}
+
+.contenedor-producto {
+
+    img {
+        width: 320px;
+        height: 490px;
+        border-radius: 3px;
+        transition: transform .2s;
+    }
+
+    img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.55);
+    }
+
+    p {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    h2 {
+        margin-top: 10px;
+        font-size: 12px;
+        text-align: center;
+    }
+
+
+
+}
+
+.productos {
+    padding: 30px 50px 30px 50px;
+}

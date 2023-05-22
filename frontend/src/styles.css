@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'MiFuente';
+  src: url(assets/fuente/DrakoniSans_PERSONAL_USE_ONLY.otf);
+}
+
+* {
+  font-family: 'MiFuente';
+}

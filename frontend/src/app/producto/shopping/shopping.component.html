@@ -1,0 +1,104 @@
+<app-navbar></app-navbar>
+<div class="container">
+	<div class="row mt-5">
+
+		<div class="col-lg-10">
+
+			<hr>
+
+			<form (ngSubmit)="submit()" [formGroup]="form">
+
+				<div class="row">
+					<div class="col-md-7">
+						<div class="form-group row">
+							<div class="col-md-3">
+								<label for="fecha">Fecha:</label>
+								<input formControlName="fecha" id="fecha" type="date" class="form-control">
+							</div>
+
+							<input formControlName="descripcion" type="hidden">
+							<input formControlName="uid" type="hidden">
+							<input formControlName="currency_code" type="hidden">
+
+							<div class="col-md-3">
+								<label for="cantidad">Cantidad:</label>
+								<div class="input-group">
+									<div class="input-group-text" (click)="restQty();" style="cursor: pointer;">-</div>
+									<input readonly formControlName="cantidad" id="cantidad" type="number"
+										class="form-control" min="1">
+									<div class="input-group-text" (click)="addQty();" style="cursor: pointer;">+</div>
+								</div>
+							</div>
+
+							<div class="col-md-3">
+								<label for="precio">Precio:</label>
+								<input readonly formControlName="precio" id="precio" type="text" class="form-control">
+							</div>
+
+							<div class="col-md-3">
+								<label for="talla">Talla:</label>
+								<input id="talla" formControlName="talla" type="text" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<div class="col-md-6">
+								<label for="nombre">Nombres:</label>
+								<input formControlName="nombre" id="nombre" type="text" class="form-control">
+							</div>
+							<div class="col-md-6">
+								<label for="apellido">Apellidos:</label>
+								<input formControlName="apellido" id="apellido" type="text" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<div class="col-md-6">
+								<label for="email">Email:</label>
+								<input formControlName="email" id="email" type="email" class="form-control">
+							</div>
+							<div class="col-md-6">
+								<label for="telefono">Telefono:</label>
+								<input formControlName="telefono" id="telefono" type="phone" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<div class="col-md-12">
+								<label for="direccion">Dirección:</label>
+								<textarea rows="4" formControlName="direccion" id="direccion"
+									class="form-control"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<div class="col-md-12">
+								<button *ngIf="!showPaypalButtons" class="btn btn-info mt-2"
+									type="submit">Continuar</button>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-md-5">
+						<h3 *ngIf="showPaypalButtons">Total compra: {{ totalCompra }}</h3>
+
+						<img *ngIf="!showPaypalButtons" class="img-thumbnail mt-2"
+							src="{{ productos?.imagen ? imgURL + productos?.imagen : 'assets/images/producto.png' }}"
+							width="350" />
+
+						<ngx-paypal *ngIf="showPaypalButtons" [config]="payPalConfig"></ngx-paypal>
+						<button *ngIf="showPaypalButtons" class="btn btn-success w-100 mt-2"
+							(click)="back()">Cancelar</button>
+					</div>
+				</div>
+			</form>
+
+		</div>
+
+		<div class="col-lg-2">
+			<a href="#" routerLink="/producto/index" class="btn btn-primary">Back</a>
+		</div>
+
+	</div>
+</div>
