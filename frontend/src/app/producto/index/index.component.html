@@ -11,7 +11,7 @@
             <div *ngFor="let producto of productos" class="contenedor-producto col-3 mt-3">
                 <a href="#" [routerLink]="['/producto/', 'show', producto.ID_Producto  ]">
                     <!--<img [src]="producto.imagen" alt="{{ producto.nombre }}" />-->
-                    <img class="img-thumbnail mt-4" src="{{imgURL}}/{{producto.imagen}}" style="height: 320px;" />
+                    <img class="img-thumbnail mt-4" src="{{imgURL}}/{{producto.imagen}}" />
                 </a>
 
                 <h2>{{ producto.Nombre }}</h2>

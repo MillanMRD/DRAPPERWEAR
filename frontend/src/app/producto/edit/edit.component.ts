@@ -28,16 +28,17 @@ export class EditComponent implements OnInit {
     this.id = this.route.snapshot.params['idPerson'];
     this.productoService.find(this.id).subscribe((data: Producto) => {
       this.producto = data;
+      this.initializeForm();
     });
+  }
 
+  initializeForm() {
     this.form = new FormGroup({
-      Nombre: new FormControl('', [Validators.required]),
-      Descripcion: new FormControl('', [Validators.required]),
-      Precio: new FormControl('', [Validators.required]),
-      Stock: new FormControl('', [Validators.required]),
-      imagen: new FormControl('', [Validators.required])
-
-
+      Nombre: new FormControl(this.producto.Nombre, [Validators.required]),
+      Descripcion: new FormControl(this.producto.Descripcion, [Validators.required]),
+      Precio: new FormControl(this.producto.Precio, [Validators.required]),
+      Stock: new FormControl(this.producto.Stock, [Validators.required]),
+      imagen: new FormControl(this.producto.imagen, [Validators.required])
     });
   }
 

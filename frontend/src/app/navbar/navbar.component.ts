@@ -52,6 +52,7 @@ export class NavbarComponent implements OnInit {
     this.auth.setAuthState(false);
     this.token.removeToken();
     this.router.navigate(['producto/index']);
+    location.reload();
   }
 
 
