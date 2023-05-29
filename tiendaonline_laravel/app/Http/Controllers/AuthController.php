@@ -34,7 +34,7 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
         }
-// $request->validate();
+        // $request->validate();
         $credentials = $request->only('email', 'password');
         $token = Auth::attempt($credentials);
         if (!$token) {
@@ -47,11 +47,12 @@ wrong.',
         }
         $user = Auth::user();
         return response()->json([
-                'access_token' => $token,
-                'token_type' => 'bearer',
-                'expires_in' => env('JWT_TTL') * 60, //auth()->factory()->getTTL() * 60,
-            'user' => $user,]);
-}
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => env('JWT_TTL') * 60, //auth()->factory()->getTTL() * 60,
+            'user' => $user,
+        ]);
+    }
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -67,7 +68,7 @@ wrong.',
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-//$token = Auth::login($user);
+        //$token = Auth::login($user);
         return response()->json([
             'message' => "User successfully registered",
             'user' => $user,
@@ -112,4 +113,54 @@ wrong.',
         ]);
     }
 
+    public function editUser(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'password' => 'required|string|min:6',
+        ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
+        $user = User::find($id);
+        if (!$user) {
+            return response()->json([
+                'error' => 'User not found',
+            ], 404);
+        }
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return response()->json([
+            'message' => 'User updated successfully',
+            'user' => $user,
+        ]);
+    }
+
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            return response()->json([
+                'error' => 'User not found',
+            ], 404);
+        }
+
+        $user->delete();
+
+        return response()->json([
+            'message' => 'User deleted successfully',
+        ]);
+    }
+
+    public function getAllUsers(Request $request)
+    {
+        $users = User::all();
+        return response()->json($users);
+    }
 }

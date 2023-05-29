@@ -1,0 +1,9 @@
+.col-lg-5 {
+
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}

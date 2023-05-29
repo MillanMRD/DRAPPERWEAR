@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TokenService } from '../../shared/token.service';
 import { AuthStateService } from '../../shared/auth-state.service';
 import { AuthService } from './../../shared/auth.service';
+import { Location } from '@angular/common';
 
 export class User {
   name: any;
@@ -26,8 +27,15 @@ export class NavUserComponent implements OnInit {
     private auth: AuthStateService,
     public router: Router,
     public token: TokenService,
-    public authService: AuthService
+    public authService: AuthService,
+    private location: Location
   ) {
+
+  }
+  ngOnInit() {
+    this.auth.userAuthState.subscribe((val) => {
+      this.isSignedIn = val;
+    });
     this.authService.profileUser().subscribe((data: any) => {
       this.UserProfile = data;
       console.log(this.UserProfile.rol);
@@ -39,18 +47,17 @@ export class NavUserComponent implements OnInit {
       }
 
     });
-  }
-  ngOnInit() {
-    this.auth.userAuthState.subscribe((val) => {
-      this.isSignedIn = val;
-    });
+
     this.constructor();
   }
   // Signout
   signOut() {
     this.auth.setAuthState(false);
     this.token.removeToken();
-    this.router.navigate(['producto/index']);
+    this.router.navigate(['']);
+    this.isSignedIn = false;
+    location.reload();
+    this.router.navigateByUrl('/');
   }
 
 }

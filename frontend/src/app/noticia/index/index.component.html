@@ -1,0 +1,87 @@
+<div *ngFor="let noticia of noticias">
+    <div *ngIf="noticia.id == idAl && rutaActual == '/login'" class="container mt-2 cont-big">
+        <div class="row">
+            <div class="col-12 cont"><a href="#" [routerLink]="['/noticia/', 'show', noticia.id  ]">
+                    <!--<img [src]="noticia.imagen" alt="{{ noticia.nombre }}" />-->
+                    <img src="{{imgURL}}/{{noticia.imagen}}" />
+                </a></div>
+            <div class="col-12 cont">
+                <h5 class="tit">{{ noticia.titulo }}</h5>
+            </div>
+            <div class="col-12 p-2 cont">
+                <p>{{ noticia.cuerpo }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngFor="let noticia of noticias">
+    <div *ngIf="noticia.id == idAl && rutaActual == '/register'" class="container mt-2 cont-big">
+        <div class="row">
+            <div class="col-12 cont"><a href="#" [routerLink]="['/noticia/', 'show', noticia.id  ]">
+                    <!--<img [src]="noticia.imagen" alt="{{ noticia.nombre }}" />-->
+                    <img src="{{imgURL}}/{{noticia.imagen}}" />
+                </a></div>
+            <div class="col-12 cont">
+                <h5 class="tit">{{ noticia.titulo }}</h5>
+            </div>
+            <div class="col-12 p-2 cont">
+                <p>{{ noticia.cuerpo }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngFor="let noticia of noticias">
+    <div *ngIf="noticia.id == idAl && rutaActual == '/'" class="container-fluid cont-landing">
+        <div class="row">
+            <div class="col-12 no-pad">
+                <a href="#" [routerLink]="['/noticia/', 'show', noticia.id]">
+                    <div class="image-container"
+                        [style.background-image]="'url(' + imgURL + '/' + noticia.imagen + ')'">
+                        <div class="col-12 cont">
+                            <h5 class="tit">{{ noticia.titulo }}</h5>
+                        </div>
+
+                        <div class="overlay"></div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container" *ngIf="rutaActual == '/noticia/index'">
+    <a *ngIf="(isAdmin||isEmployee) && isSignedIn" routerLink="/noticia/create" class="btn btn-success">Nueva
+        Noticia</a>
+    <div class="row">
+        <div class="col-12 mt-3" *ngFor="let noticia of noticias">
+            <div class="container mt-2 cont-small">
+                <a href="#" [routerLink]="['/noticia/', 'show', noticia.id  ]">
+                    <!--<img [src]="noticia.imagen" alt="{{ noticia.nombre }}" />-->
+
+
+                    <div class="row">
+                        <div class="col-6 cont"><a href="#" [routerLink]="['/noticia/', 'show', noticia.id  ]">
+                                <!--<img [src]="noticia.imagen" alt="{{ noticia.nombre }}" />-->
+                                <img src="{{imgURL}}/{{noticia.imagen}}" />
+                            </a></div>
+                        <div class="col-6 cont medio">
+                            <h5 class="tit">{{ noticia.titulo }}</h5>
+
+                            <p>{{ noticia.cuerpo }}</p>
+
+                        </div>
+
+
+                    </div>
+                </a>
+            </div>
+            <div *ngIf="(isAdmin||isEmployee) && isSignedIn">
+                <button type="button" (click)="deleteProducto(noticia.id)" class="btn btn-danger">Delete</button>
+
+            </div>
+        </div>
+    </div>
+</div>

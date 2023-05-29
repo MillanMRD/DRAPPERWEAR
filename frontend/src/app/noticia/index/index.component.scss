@@ -1,0 +1,138 @@
+a {
+    text-decoration: none;
+    color: black !important;
+}
+
+.cont-big {
+    background-color: rgba(177, 177, 177, 0.523);
+    border-radius: 10px;
+    border: 1px solid black;
+    border-style: dashed;
+
+    img {
+        width: 100%;
+        height: 192px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+    }
+
+    .cont {
+
+        padding: 0;
+
+        .tit {
+            font-size: 30px;
+            font-weight: bold;
+            padding: 10px 7px 0 7px;
+        }
+
+        p {
+            word-wrap: break-word !important;
+
+        }
+    }
+}
+
+
+
+.cont-landing {
+    position: relative;
+
+    .no-pad {
+        padding: 0;
+    }
+
+    .cont {
+        width: auto;
+        max-width: 50%;
+        color: white;
+        position: relative;
+        z-index: 2;
+        border: 1px solid white;
+        /* border-radius: 8px; */
+        background-color: #ffffff00;
+    }
+
+    .image-container {
+        width: 100%;
+        height: 600px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        /* Utilizamos flexbox para centrar verticalmente el contenido */
+        flex-direction: column;
+        /* Aplicamos dirección vertical a los elementos internos */
+        justify-content: center;
+        /* Centramos verticalmente los elementos */
+        align-items: center;
+        /* Centramos horizontalmente los elementos */
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.552);
+        /* Color de superposición oscurecida */
+    }
+
+    .tit {
+        position: relative;
+        /* Restauramos la posición relativa para que no se superpongan */
+        z-index: 2;
+        font-size: 25px;
+        font-weight: 100;
+        padding: 30px;
+        margin: 0;
+    }
+
+    .p-2.cont {
+        color: white;
+        position: relative;
+        /* Restauramos la posición relativa para que no se superpongan */
+        z-index: 2;
+    }
+}
+
+.cont-small {
+    border: 1px solid black;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    /* Agrega sombreado */
+    transition: transform 0.3s ease;
+
+    img {
+        height: 250px;
+        width: 100%;
+    }
+
+    .col-6.cont.medio {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cont {
+
+        padding: 0;
+
+        .tit {
+            font-size: 30px;
+            font-weight: bold;
+
+        }
+
+        p {
+            word-wrap: break-word !important;
+
+        }
+    }
+}
+
+.cont-small:hover {
+    transform: scale(1.05);
+
+}

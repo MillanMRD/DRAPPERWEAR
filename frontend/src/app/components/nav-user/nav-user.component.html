@@ -10,9 +10,9 @@
     <div class="container">
         <div class="row menu">
             <div class="col-5 navegacion">
-                <a href="../components/signin/signin.component.html">Incio</a>
-                <a href="" class="espacio">Productos</a>
-                <a href="" class="espacio">Colecciones</a>
+                <a href="#" routerLink="/">Incio</a>
+                <a href="#" routerLink="/noticia/index" class="espacio">Noticias</a>
+                <a href="#" routerLink="/producto/index" class="espacio">Productos</a>
             </div>
             <div class="col-4 logo">
                 <h5>DRAPPER</h5>
@@ -30,7 +30,7 @@
                         </svg>
                     </button>
                 </a>
-                <a href="#" routerLink="/profile">
+                <a href="#" routerLink="/profile" *ngIf="!isAdmin||!isEmployee">
                     <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
                             class="bi bi-person-circle" viewBox="0 0 16 16" style="color: rgb(255, 255, 255)">

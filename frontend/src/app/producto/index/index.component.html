@@ -1,10 +1,10 @@
-<app-navbar></app-navbar>
-<div class="productos">
+<div class="productos" *ngIf="rutaActual == '/producto/index'">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <p class="title">Productos</p>
-                <a *ngIf="isAdmin||isEmployee" routerLink="/producto/create" class="btn btn-success">Create New
+                <a *ngIf="(isAdmin||isEmployee) && isSignedIn" routerLink="/producto/create"
+                    class="btn btn-success">Create New
                     producto</a>
 
             </div>
@@ -16,7 +16,7 @@
 
                 <h2>{{ producto.Nombre }}</h2>
                 <p>€{{ producto.Precio }} EUR </p>
-                <div *ngIf="isAdmin||isEmployee">
+                <div *ngIf="(isAdmin||isEmployee) && isSignedIn">
                     <a href="#" [routerLink]="['/producto/', 'edit', producto.ID_Producto  ]"
                         class="btn btn-primary">Edit</a>
                     <button type="button" (click)="deleteProducto(producto.ID_Producto)"
@@ -28,3 +28,27 @@
         </div>
     </div>
 </div>
+
+<div class="productos" *ngIf="rutaActual == '/'">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="title">Productos</p>
+
+
+            </div>
+            <div *ngFor="let producto of productos" class="contenedor-producto col-3 mt-3">
+                <a href="#" [routerLink]="['/producto/', 'show', producto.ID_Producto  ]">
+                    <!--<img [src]="producto.imagen" alt="{{ producto.nombre }}" />-->
+                    <img class="img-thumbnail mt-4" src="{{imgURL}}/{{producto.imagen}}" />
+                </a>
+
+                <h2>{{ producto.Nombre }}</h2>
+                <p>€{{ producto.Precio }} EUR </p>
+
+
+
+
+
+            </div>
+        </div>

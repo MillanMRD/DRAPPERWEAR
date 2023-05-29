@@ -1,0 +1,39 @@
+<div class="container">
+    <h1>Create New Post</h1>
+
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="titulo">titulo:</label>
+            <input formControlName="titulo" id="titulo" type="text" class="form-control" />
+            <div *ngIf="f['titulo'].touched && f['titulo'].invalid" class="alert alert-danger">
+                <div *ngIf="f['titulo'].errors && f['titulo'].errors['required']">
+                    titulo is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="cuerpo">cuerpo</label>
+            <textarea formControlName="cuerpo" id="cuerpo" type="text" class="form-control">
+        </textarea>
+            <div *ngIf="f['cuerpo'].touched && f['cuerpo'].invalid" class="alert alert-danger">
+                <div *ngIf="f['cuerpo'].errors && f['cuerpo'].errors['required']">
+                    cuerpo is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Fotografía articulo</label>
+            <input (change)="uploadFile($event)" type="file" class="form-control form-control-line"
+                style="color: black">
+        </div>
+
+        <button class="btn btn-primary mt-5 mb-5" type="submit">
+            Submit
+        </button>
+    </form>
+
+</div>

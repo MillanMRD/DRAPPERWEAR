@@ -10,17 +10,14 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { ViewComponent } from './view/view.component';
 import { ShoppingComponent } from './shopping/shopping.component';
-import { NavbarComponent } from '../navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
-    IndexComponent,
     CreateComponent,
     EditComponent,
     ViewComponent,
     ShoppingComponent,
-    NavbarComponent
   ],
   imports: [
     CommonModule,

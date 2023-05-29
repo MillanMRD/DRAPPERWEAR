@@ -1,4 +1,12 @@
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 
 <!--<app-productos></app-productos>-->
+<app-nav-user></app-nav-user>
+
+<app-index *ngIf="rutaActual == '/'"></app-index>
+<app-index-producto *ngIf="rutaActual == '/'"></app-index-producto>
+
+
 <router-outlet></router-outlet>
+
+<app-landing></app-landing>

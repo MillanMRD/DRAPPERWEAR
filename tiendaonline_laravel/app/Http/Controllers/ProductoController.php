@@ -8,6 +8,8 @@ use App\Models\Producto;
 use App\Models\Cliente;
 use App\Models\ImagenProducto;
 use App\Models\Pedidos;
+use App\Models\DetallePedido; // Asegúrate de importar el modelo DetallePedido
+
 use DB;
 
 
@@ -167,6 +169,12 @@ class ProductoController extends Controller
                 'message' => 'Producto no encontrado'
             ], 404);
         }
+    }
+
+    public function mostrarDatosDetallePedidos()
+    {
+        $pedidos = DetallePedido::all();
+        return response()->json($pedidos);
     }
 
     //Compras
